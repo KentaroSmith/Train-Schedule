@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/CSS/style.css">
+    <!--jquery-->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!--Moment.js-->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!--firebase-->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <title>Bus Schedule</title>
@@ -38,42 +42,48 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"> Route Number</span>
                 </div>
+                <!--routenum-->
                 <input type="number" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" id="routenum">
-                <!--id-->
+
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"> Destination</span>
                 </div>
+                <!--destination-->
                 <input type="text" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" id="destination">
-                <!--id-->
+
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"> Frequency</span>
                 </div>
+                <!--frequency-->
                 <input type="text" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" id="frequency">
-                <!--id-->
+
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"> Stops</span>
                 </div>
+                <!--stops-->
                 <input type="number" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" id="stops">
-                <!--id-->
+
 
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"> Route start time</span>
                 </div>
+                <!--start-->
                 <input type="time" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" id="start">
-                <!--id-->
+
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"> Route end time</span>
                 </div>
+                <!--end-->
                 <input type="time" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" id="end">
-                <!--id-->
+
             </div>
             <button type="button" class="btn btn-info" id="Submit">Submit</button>
         </div>

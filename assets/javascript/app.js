@@ -27,13 +27,13 @@ $("#Submit").on("click", function () {
     stops = $("#stops").val().trim();
     startTime = $("#start").val().trim();
     endTime = $("#end").val().trim();
-    console.log(startTime);
     database.ref().push({
         routenumber: routenumber,
         destination: destination,
         frequency: frequency,
         stops: stops,
         startTime: startTime,
+        endTime: endTime,
     });
 });
 database.ref().on("child_added", function (snapshot) {
@@ -43,6 +43,8 @@ database.ref().on("child_added", function (snapshot) {
     console.log(sv.destination);
     console.log(sv.frequency);
     console.log(sv.stops);
+    console.log(sv.startTime);
+    console.log(sv.endTime);
     createRow(snapshot.val());
 
 
@@ -52,16 +54,29 @@ database.ref().on("child_added", function (snapshot) {
 
 function createRow(time) {
     //calculating the time of each stop and counting time left from current time
+    var numofstops = 27;
     var timesofstops = [];
     var nextarrivaltime;
     var timeremaining;
+    var convertStart = moment(time.startTime, "HH:mm");
+    var convertFrequency = moment(time.frequency, "mm");
+
+    for (var i = 0; i < numofstops; i++) {
+        var timesinceroutestart = time.frequency * i;
+        timesofstops.push(moment(convertStart).add(timesinceroutestart, "minutes").format('HH:mm A'));
+        //From here I need to determine the next time in the array based on the current time and display it as nextarrivaltime
+        //set interval for time remaining
+
+    };
+    console.log(timesofstops);
     var row = $("<tr>");
-    //pulling info from firebase to fill all of the fields
-    row.append($("<td>")).text(time.routenumber);
-    row.append($("<td>")).text(time.destination);
-    row.append($("<td>")).text(time.frequency);
-    row.append($("<td>")).text(time.stops);
-    row.append($("<td>")).text(nextarrivaltime);
-    row.append($("<td>")).text(timeremaining);
     $(".table").append(row);
-}
+    //pulling info from firebase to fill all of the fields
+    row.append($("<td>").text(time.routenumber));
+    row.append($("<td>").text(time.destination));
+    row.append($("<td>").text(time.frequency));
+    row.append($("<td>").text(time.stops));
+    row.append($("<td>").text(nextarrivaltime));
+    row.append($("<td>").text(timeremaining));
+
+};
