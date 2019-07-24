@@ -65,9 +65,12 @@ function createRow(time) {
         var timesinceroutestart = time.frequency * i;
         timesofstops.push(moment(convertStart).add(timesinceroutestart, "minutes").format('HH:mm A'));
         //From here I need to determine the next time in the array based on the current time and display it as nextarrivaltime
+        //Item is currently undefined, need to find next time in the array
         //set interval for time remaining
-
     };
+    //nextarrivaltime = timesofstops.find(moment().format());
+    //possible solution? https://github.com/moment/moment/issues/3297
+
     console.log(timesofstops);
     var row = $("<tr>");
     $(".table").append(row);
