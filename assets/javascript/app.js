@@ -59,7 +59,7 @@ function createRow(time) {
     var nextarrivaltime;
     var timeremaining;
     var convertStart = moment(time.startTime, "HH:mm");
-    var convertFrequency = moment(time.frequency, "mm");
+    var currentTime = moment().format("HH:mm");
 
     for (var i = 0; i < numofstops; i++) {
         var timesinceroutestart = time.frequency * i;
@@ -72,6 +72,18 @@ function createRow(time) {
     //possible solution? https://github.com/moment/moment/issues/3297
 
     console.log(timesofstops);
+    for (var i = 0; i < timesofstops.length; i++) {
+        if (currentTime.isBefore(timesofstops[i])) {
+            console.log(timesofstops[i]);
+
+            //this should work, might need differnt moment CDN
+        }
+        else {
+            console.log(time.startTime)
+        };
+    };
+
+
     var row = $("<tr>");
     $(".table").append(row);
     //pulling info from firebase to fill all of the fields
